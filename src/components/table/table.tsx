@@ -1,69 +1,24 @@
 import React, {useState} from 'react'
 import './table.css'
 
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from '@tanstack/react-table'
+import {createColumnHelper, flexRender, getCoreRowModel, useReactTable,} from '@tanstack/react-table'
+import {ReferralEventRender} from "../referralEventsHelper";
+import {defaultData} from "./tableData";
 
 interface ReferralEvent {
   date: string
   amount: string
 }
 
-type Person = {
+export interface Person {
   referralEvent: ReferralEvent
   advocate: string
   friend: number
   referralStatus: string
 }
 
-const defaultData: Person[] = [
-  {
-    referralEvent: {
-      date: '2020-01-01',
-      amount: '100',
-    },
-    advocate: 'linsley',
-    friend: 24,
-    referralStatus: 'In Relationship',
-  },
-  {
-    referralEvent: {
-      date: '2020-01-02',
-      amount: '200',
-    },
-    advocate: 'miller',
-    friend: 40,
-    referralStatus: 'Single',
-  },
-  {
-    referralEvent: {
-      date: '2020-01-03',
-      amount: '300',
-    },
-    advocate: 'dirte',
-    friend: 45,
-    referralStatus: 'Complicated',
-  },
-]
-
 const columnHelper = createColumnHelper<Person>()
 
-interface ReferralEventProps {
-  amount: string
-  date: string
-}
-
-const ReferralEventRender: React.FC<ReferralEventProps> = ({amount, date}) => {
-  return <div>
-    <div className='purchase'>Purchase</div>
-    <div className='date'>{date}</div>
-    <div className='amount'>{amount}</div>
-  </div>
-}
 const columns = [
   columnHelper.accessor(row => row.referralEvent, {
     id: 'referralEvent',

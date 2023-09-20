@@ -1,0 +1,16 @@
+.referral-container {
+    padding: 10px 0;
+}
+
+.referral-container div:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.purchase {
+    font-weight: bold;
+}
+
+.date {
+    color: grey;
+    font-style: italic;
+}
