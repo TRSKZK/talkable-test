@@ -1,0 +1,17 @@
+.table {
+    width: 1000px;
+    border-collapse: collapse;
+}
+
+th {
+    padding-bottom: 16px;
+    border-bottom: 1px solid grey;
+    text-align: start;
+}
+
+td {
+    width: 250px;
+    height: 60px;
+    border-bottom: 1px solid grey;
+    text-align: start;
+}
