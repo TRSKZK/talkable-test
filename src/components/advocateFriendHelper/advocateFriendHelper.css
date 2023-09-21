@@ -1,0 +1,15 @@
+.advocate-container {
+    padding: 10px 0;
+}
+
+.advocate-container div:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.email {
+    font-weight: bold;
+}
+
+.advocate {
+    color: grey;
+}

@@ -4,20 +4,21 @@ import './table.css'
 import {createColumnHelper, flexRender, getCoreRowModel, useReactTable,} from '@tanstack/react-table'
 import {ReferralEventRender} from "../referralEventsHelper";
 import {defaultData} from "./tableData";
+import {AdvocateFriendHelper} from "../advocateFriendHelper";
 
 interface ReferralEvent {
   date: string
   amount: string
 }
 
-export interface Person {
+export interface Referral {
   referralEvent: ReferralEvent
   advocate: string
-  friend: number
+  friend: string
   referralStatus: string
 }
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Referral>()
 
 const columns = [
   columnHelper.accessor(row => row.referralEvent, {
@@ -31,11 +32,11 @@ const columns = [
   }),
   columnHelper.accessor('advocate', {
     header: 'Advocate',
-    cell: info => info.renderValue(),
+    cell: info => <AdvocateFriendHelper email={info.getValue()} person={'Advocate'}/>,
   }),
   columnHelper.accessor('friend', {
     header: () => 'Friend',
-    cell: info => info.renderValue(),
+    cell: info => <AdvocateFriendHelper email={info.getValue()} person={'Friend'}/>,
 
   }),
   columnHelper.accessor('referralStatus', {
