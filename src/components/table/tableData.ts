@@ -1,4 +1,22 @@
-import {Referral} from "./table";
+interface ReferralEvent {
+  date: string
+  amount: string
+}
+
+export enum ReferralStatus {
+  Pending = 'Pending',
+  Approved = 'Approved',
+  Flagged = 'Flagged',
+  Blocked = 'Blocked',
+  Voided = 'Voided',
+}
+
+export interface Referral {
+  referralEvent: ReferralEvent
+  advocate: string
+  friend: string
+  referralStatus: ReferralStatus
+}
 
 export const defaultData: Referral[] = [
   {
@@ -8,7 +26,7 @@ export const defaultData: Referral[] = [
     },
     advocate: 'autouser23926@gmail.com',
     friend: 'fr58272@gmail.com',
-    referralStatus: 'In Relationship',
+    referralStatus: ReferralStatus.Pending,
   },
   {
     referralEvent: {
@@ -17,7 +35,7 @@ export const defaultData: Referral[] = [
     },
     advocate: 'ad0379118142@gmail.com',
     friend: 'fr0379118142@gmail.com',
-    referralStatus: 'Single',
+    referralStatus: ReferralStatus.Flagged,
   },
   {
     referralEvent: {
@@ -26,7 +44,7 @@ export const defaultData: Referral[] = [
     },
     advocate: 'ad569991@gmail.com',
     friend: 'fr94250@gmail.com',
-    referralStatus: 'Complicated',
+    referralStatus: ReferralStatus.Approved,
   },
   {
     referralEvent: {
@@ -35,7 +53,7 @@ export const defaultData: Referral[] = [
     },
     advocate: 'user.to.be.blocked92187@gmail.com',
     friend: 'user.to.be.blocked2682@gmail.com',
-    referralStatus: 'Complicated',
+    referralStatus: ReferralStatus.Blocked,
   },
 
   {
@@ -45,6 +63,7 @@ export const defaultData: Referral[] = [
     },
     advocate: 'ad0693677382@gmail.com',
     friend: 'fr0693677382@gmail.com',
-    referralStatus: 'Complicated',
+    referralStatus: ReferralStatus.Voided,
   },
 ]
+

@@ -1,0 +1,15 @@
+.referral-container {
+    padding: 10px 0;
+}
+
+.status {
+    font-weight: bold;
+}
+
+.remark {
+    color: grey;
+}
+
+.fraud {
+    color: red;
+}
